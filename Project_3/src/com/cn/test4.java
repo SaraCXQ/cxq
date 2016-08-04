@@ -7,8 +7,8 @@ public class test4 {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-         Letter letter = new Letter("ss我饿的34东方闪电",0);
-         letter.split(0);
+         Letter letter = new Letter("s我饿的34东方闪电",4);
+         letter.split(4);
 	}
 
 }
@@ -35,22 +35,58 @@ class Letter{
         }
         return false;
     }
+	@SuppressWarnings("null")
+	public int[] findch(String str)
+	{
+		char arr[] = str.toCharArray();
+		
+		int position[] = new int[arr.length];
+		int j = 0;
+		for(int i = 0; i < arr.length; i++)
+		{
+			if(ischletter(arr[i]))
+			{
+				position[j] = i;
+				j++;
+			}
+		}
+		return position;
+	}
 
 	public void split(int number)
 	{
 		int sum =0 ;
 		int sum1;
 		char arr[] = str.toCharArray();
-		if (ischletter(arr[number]) )
+		int position[] = findch(str);
+		int j = 0;
+		int i = 0;
+		int flag = 0;
+		for ( i = 0; i < position.length; i++)
 		{
-			sum = count(number);			
+			if(number == (position[i] + 2))
+			{
+				j = position[i];
+				flag = 1;
+			}				
+			
 		}
-		sum1 = (number * 2 - sum)/2;
-		for(int i = 0; i < sum1; i++)
+		if(flag == 0)
 		{
-			System.out.print(arr[i]);
+			j = number;
+			for(int k = 0; k < j; k++)
+			{
+				System.out.print(arr[k]);
+			}
 		}
 		
+		if(flag ==  1)
+		{
+			for(int k = 0; k <= j; k++)
+			{
+				System.out.print(arr[k]);
+			}
+		}
 	}
 	public int count(int number)
 	{

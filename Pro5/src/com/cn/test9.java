@@ -1,5 +1,7 @@
 package com.cn;
 
+import java.util.Vector;
+
 public class test9 {
 
 	/**
@@ -138,6 +140,7 @@ public class test9 {
 			sortBefore[j + 1] = temp;
 		}
 	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         test9 test = new test9();
